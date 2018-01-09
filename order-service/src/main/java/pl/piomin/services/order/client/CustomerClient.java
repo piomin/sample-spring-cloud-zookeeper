@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import pl.piomin.services.order.model.Customer;
 
-@FeignClient(name = "customer-service")
+@FeignClient(name = "customer")
 public interface CustomerClient {
 
 	@GetMapping("/withAccounts/{customerId}")

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import pl.piomin.services.order.model.Product;
 
-@FeignClient(name = "product-service")
+@FeignClient(name = "product")
 public interface ProductClient {
 
 	@PostMapping("/ids")

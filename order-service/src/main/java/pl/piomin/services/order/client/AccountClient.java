@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import pl.piomin.services.order.model.Account;
 
-@FeignClient(name = "account-service")
+@FeignClient(name = "account")
 public interface AccountClient {
 
 	@PutMapping("/withdraw/{accountId}/{amount}")
