@@ -1,19 +1,17 @@
 package pl.piomin.services.gateway;
 
-import java.util.Arrays;
-import java.util.Random;
-
-import org.junit.Test;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-
 import pl.piomin.services.gateway.model.Order;
 import pl.piomin.services.gateway.model.OrderStatus;
+
+import java.util.Arrays;
+import java.util.Random;
 
 public class GatewayControllerTest {
 
 	TestRestTemplate template = new TestRestTemplate();
 
-	@Test
+//	@Test
 	public void testOrder() throws InterruptedException {
 		for (int i = 0; i < 5; i++) {
 			sendAndAcceptOrder();

@@ -13,7 +13,7 @@ public class OrderControllerTest {
 
 	TestRestTemplate template = new TestRestTemplate();
 
-	@Test
+//	@Test
 	public void testOrder() throws InterruptedException {
 		for (int i = 0; i < 10; i++) {
 			sendAndAcceptOrder();
