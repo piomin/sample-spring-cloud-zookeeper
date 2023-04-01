@@ -7,7 +7,6 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
-
 import pl.piomin.services.product.model.Product;
 import pl.piomin.services.product.repository.ProductRepository;
 
@@ -22,7 +21,7 @@ public class ProductApplication {
 	}
 	
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(ProductApplication.class).web(true).run(args);
+		new SpringApplicationBuilder(ProductApplication.class).run(args);
 	}
 
 	@Bean
