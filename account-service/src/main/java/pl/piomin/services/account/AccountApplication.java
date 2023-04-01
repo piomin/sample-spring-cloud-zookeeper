@@ -22,7 +22,7 @@ public class AccountApplication {
 	}
 	
 	public static void main(String[] args) {
-		new SpringApplicationBuilder(AccountApplication.class).web(true).run(args);
+		new SpringApplicationBuilder(AccountApplication.class).run(args);
 	}
 	
 	@Bean
