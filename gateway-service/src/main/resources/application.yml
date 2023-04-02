@@ -1,6 +1,8 @@
 spring:  
   application:
     name: gateway-service
+  config:
+    import: optional:zookeeper:localhost:2181
   output:
     ansi:
       enabled: always
@@ -34,3 +36,20 @@ spring:
             - Path=/product/**
           filters:
             - RewritePath=/product/(?<path>.*), /$\{path}
+    zookeeper:
+      connect-string: localhost:2181
+---
+spring:
+  config:
+    activate:
+      on-profile: zone1
+server:
+  port: ${PORT:8080}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: zone2
+server:
+  port: ${PORT:9080}

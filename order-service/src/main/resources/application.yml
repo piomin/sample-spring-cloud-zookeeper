@@ -1,0 +1,32 @@
+spring:  
+  application:
+    name: order-service
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+      config:
+        enabled: true
+  config:
+    import: optional:zookeeper:localhost:2181
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    
+---
+spring:
+  profiles: zone1
+  config:
+    activate:
+      on-profile: zone1
+server:  
+  port: ${PORT:8090}
+
+---
+spring:
+  profiles: zone2
+  config:
+    activate:
+      on-profile: zone2
+server:  
+  port: ${PORT:9090}
