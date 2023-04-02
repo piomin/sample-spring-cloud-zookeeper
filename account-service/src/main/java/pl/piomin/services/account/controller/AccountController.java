@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import pl.piomin.services.account.exception.BalanceNotEnoughException;
 import pl.piomin.services.account.model.Account;
 import pl.piomin.services.account.repository.AccountRepository;
 
@@ -30,19 +31,21 @@ public class AccountController {
 	@Autowired
 	AccountRepository repository;
 
-	@PostMapping
+	@PostMapping("/")
 	public Account add(@RequestBody Account account) {
 		return repository.add(account);
 	}
 
-	@PutMapping
+	@PutMapping("/")
 	public Account update(@RequestBody Account account) {
 		return repository.update(account);
 	}
 
 	@PutMapping("/withdraw/{id}/{amount}")
-	public Account withdraw(@PathVariable("id") Long id, @PathVariable("amount") int amount) throws JsonProcessingException {
+	public Account withdraw(@PathVariable("id") Long id, @PathVariable("amount") int amount) throws JsonProcessingException, BalanceNotEnoughException {
 		Account account = repository.findById(id);
+		if (amount > account.getBalance())
+			throw new BalanceNotEnoughException("Not enough funds: id=" + id + ", amount=" + amount);
 		LOGGER.info("Account found: {}", mapper.writeValueAsString(account));
 		account.setBalance(account.getBalance() - amount);
 		LOGGER.info("Current balance: {}", mapper.writeValueAsString(Collections.singletonMap("balance", account.getBalance())));
