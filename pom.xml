@@ -9,7 +9,7 @@
 		<sonar.projectKey>piomin_sample-spring-cloud-zookeeper</sonar.projectKey>
 		<sonar.organization>piomin</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<java.version>17</java.version>
+		<java.version>20</java.version>
 	</properties>
 
 	<parent>
