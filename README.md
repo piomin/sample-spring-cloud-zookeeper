@@ -9,9 +9,10 @@
 
 ## Architecture Overview
 
-This project demonstrates a microservices architecture built with Spring Cloud and Apache Zookeeper for service discovery. The system consists of five microservices that work together to provide a complete e-commerce-like functionality.
+This project demonstrates a microservices architecture built with Spring Cloud and Apache Zookeeper for service discovery. The system comprises five microservices that collaborate to deliver comprehensive e-commerce-like functionality.
 
 ```mermaid
+info
 flowchart TB
 Client["Client Applications"] --> Gateway["Gateway Service:8080"]
 Gateway --> Order["Order Service:8090"]
@@ -207,7 +208,7 @@ curl -X PUT http://localhost:8080/account/withdraw/1/1000
 
 - Service logs output via `CommonsRequestLoggingFilter`  
 - Enable debug: `logging.level.org.springframework.web.filter.CommonsRequestLoggingFilter=DEBUG`  
-- Zookeeper logs in installation directory  
+- Zookeeper logs in the installation directory  
 - Health check: `curl http://localhost:8080/actuator/health`  
 
 ## Development Notes
@@ -237,4 +238,6 @@ sample-spring-cloud-zookeeper/
 - [Spring Cloud Gateway Documentation](https://spring.io/projects/spring-cloud-gateway)  
 - [OpenFeign Documentation](https://spring.io/projects/spring-cloud-openfeign)  
 - [Mastering Spring Cloud Book](https://www.packtpub.com/application-development/mastering-spring-cloud)
-This repository is an example of application created for a demo of content described in my book: [Mastering Spring Cloud](https://www.packtpub.com/application-development/mastering-spring-cloud) 
+
+
+This repository is an example of an application created for a demo of the content described in my book: [Mastering Spring Cloud](https://www.packtpub.com/application-development/mastering-spring-cloud) 
