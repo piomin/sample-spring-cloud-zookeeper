@@ -18,10 +18,10 @@ flowchart TB
     Gateway --> Customer["Customer Service:8092"]
     Gateway --> Product["Product Service:8093"]
     Gateway --> Account["Account Service:8091"]
-    Order --|Feign Client| Account
-    Order --|Feign Client| Product
-    Order --|Feign Client| Customer
-    Customer --|Feign Client| Account
+    Order -->|Feign Client| Account
+    Order -->|Feign Client| Product
+    Order -->|Feign Client| Customer
+    Customer -->|Feign Client| Account
     Gateway -.-> Zookeeper["Apache Zookeeper:2181"]
     Order -.-> Zookeeper
     Customer -.-> Zookeeper
