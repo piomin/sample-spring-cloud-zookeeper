@@ -29,7 +29,7 @@ public class AccountControllerTests {
     }
 
     @Container
-    static GenericContainer zookeeper = new GenericContainer(DockerImageName.parse("zookeeper:3.8"))
+    static GenericContainer zookeeper = new GenericContainer(DockerImageName.parse("zookeeper:3.9"))
             .withExposedPorts(2181);
 
     @BeforeAll
