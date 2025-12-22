@@ -12,28 +12,27 @@
 This project demonstrates a microservices architecture built with Spring Cloud and Apache Zookeeper for service discovery. The system comprises five microservices that collaborate to deliver comprehensive e-commerce-like functionality.
 
 ```mermaid
-info
 flowchart TB
-Client["Client Applications"] --> Gateway["Gateway Service:8080"]
-Gateway --> Order["Order Service:8090"]
-Gateway --> Customer["Customer Service:8092"]
-Gateway --> Product["Product Service:8093"]
-Gateway --> Account["Account Service:8091"]
-Order --|Feign Client| Account
-Order --|Feign Client| Product
-Order --|Feign Client| Customer
-Customer --|Feign Client| Account
-Gateway -.-> Zookeeper["Apache Zookeeper:2181"]
-Order -.-> Zookeeper
-Customer -.-> Zookeeper
-Product -.-> Zookeeper
-Account -.-> Zookeeper
-style Gateway fill:#e1f5fe
-style Zookeeper fill:#fff3e0
-style Order fill:#f3e5f5
-style Customer fill:#e8f5e8
-style Product fill:#fff8e1
-style Account fill:#fce4ec
+    Client["Client Applications"] --> Gateway["Gateway Service:8080"]
+    Gateway --> Order["Order Service:8090"]
+    Gateway --> Customer["Customer Service:8092"]
+    Gateway --> Product["Product Service:8093"]
+    Gateway --> Account["Account Service:8091"]
+    Order -->|Feign Client| Account
+    Order -->|Feign Client| Product
+    Order -->|Feign Client| Customer
+    Customer -->|Feign Client| Account
+    Gateway -.-> Zookeeper["Apache Zookeeper:2181"]
+    Order -.-> Zookeeper
+    Customer -.-> Zookeeper
+    Product -.-> Zookeeper
+    Account -.-> Zookeeper
+    style Gateway fill:#e1f5fe
+    style Zookeeper fill:#fff3e0
+    style Order fill:#f3e5f5
+    style Customer fill:#e8f5e8
+    style Product fill:#fff8e1
+    style Account fill:#fce4ec
 ```
 
 ### Microservices Description
